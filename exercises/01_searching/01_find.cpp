@@ -36,7 +36,7 @@ int findIndex(const std::vector<int>& vec, int target) {
     if(it == vec.end()){
         return -1;
     }else{
-        return vec.end()-it;
+        return it-vec.begin();
     }
 }
 
@@ -64,9 +64,30 @@ bool containsWord(const std::vector<std::string>& words, const std::string& word
 // Use std::find().
 // ------------------------------------------------------------
 int firstAfter(const std::vector<int>& vec, int target) {
-    // YOUR CODE HERE
+        auto it = std::find(vec.begin(), vec.end(), target);
+    if(it == vec.end() || (it - vec.begin()) + 1 >= vec.size() || std::next(it) == vec.end()){
+        return -1;
+    }else{
+        return vec[(it-vec.begin())+1];
+    }
+}//lesson learned was that std::next(iterator) will return the next element vruhhh
+
+//These also exist
+
+/*
+int firstAfter(const std::vector<int>& vec, int target) {
+    const int* begin = vec.data();
+    const int* end = begin + vec.size();
+
+    for (const int* p = begin; p != end; ++p) {
+        if (*p == target) {
+            if (p + 1 == end) return -1;
+            return *(p + 1);
+        }
+    }
     return -1;
 }
+*/
 
 // ============================================================
 int main() {

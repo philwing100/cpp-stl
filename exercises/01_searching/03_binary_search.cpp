@@ -35,7 +35,9 @@
 // Use std::binary_search(). The vector is guaranteed sorted.
 // ------------------------------------------------------------
 bool inStock(const std::vector<int>& sortedIds, int productId) {
-    // YOUR CODE HERE
+    if(std::binary_search(sortedIds.begin(), sortedIds.end(), productId)){
+        return true;
+    }
     return false;
 }
 
@@ -49,8 +51,12 @@ bool inStock(const std::vector<int>& sortedIds, int productId) {
 // ------------------------------------------------------------
 bool allPresent(const std::vector<int>& sortedMaster,
                 const std::vector<int>& items) {
-    // YOUR CODE HERE
-    return false;
+    for(int item : items){
+        if(!std::binary_search(sortedMaster.begin(),sortedMaster.end(), item)){
+            return false;
+        }
+    }
+    return true;
 }
 
 // ------------------------------------------------------------
@@ -62,7 +68,9 @@ bool allPresent(const std::vector<int>& sortedMaster,
 // ------------------------------------------------------------
 bool hasWord(const std::vector<std::string>& sortedWords,
              const std::string& word) {
-    // YOUR CODE HERE
+    if(std::binary_search(sortedWords.begin(),sortedWords.end(), word)){
+        return true;
+    }
     return false;
 }
 

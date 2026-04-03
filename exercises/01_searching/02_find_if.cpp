@@ -35,8 +35,12 @@
 // Use std::find_if() with a lambda.
 // ------------------------------------------------------------
 int firstEven(const std::vector<int>& vec) {
-    // YOUR CODE HERE
-    return -1;
+    auto it = std::find_if(vec.begin(), vec.end(), [](int x) { return x % 2 == 0;});
+    if(it==vec.end()){
+        return -1;
+    }else{
+        return vec[it-vec.begin()];
+    }
 }
 
 // ------------------------------------------------------------
@@ -48,8 +52,9 @@ int firstEven(const std::vector<int>& vec) {
 // Use std::find_if().
 // ------------------------------------------------------------
 std::string firstLongerThan(const std::vector<std::string>& words, int n) {
-    // YOUR CODE HERE
-    return "";
+    auto it = std::find_if(words.begin(), words.end(), [&n](const std::string x){ return x.length() > n; });
+    if (it == words.end()) return "";
+    return *it;
 }
 
 // ------------------------------------------------------------
@@ -60,8 +65,9 @@ std::string firstLongerThan(const std::vector<std::string>& words, int n) {
 // Use std::find_if().
 // ------------------------------------------------------------
 int firstNegativeIndex(const std::vector<int>& vec) {
-    // YOUR CODE HERE
-    return -1;
+    auto it = std::find_if(vec.begin(), vec.end(), [](const int x){ return x<0; });
+    if(it==vec.end()) return -1;
+    return it-vec.begin();
 }
 
 // ============================================================
@@ -82,7 +88,7 @@ int main() {
     test::check("first qualifying",       firstLongerThan({"abc","de","fghi"}, 2) == "abc");
     test::check("none qualify — empty",   firstLongerThan({"a","bb","ccc"}, 5) == "");
     test::check("empty vector — empty",   firstLongerThan({}, 1) == "");
-    test::check("exact length excluded",  firstLongerThan({"four","five"}, 4) == "five");
+    test::check("exact length excluded",  firstLongerThan({"four","seven"}, 4) == "seven");
 
     test::section("firstNegativeIndex");
     test::check("negative at start",      firstNegativeIndex({-1,2,3}) == 0);

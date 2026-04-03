@@ -33,8 +33,7 @@
 // Use std::count().
 // ------------------------------------------------------------
 int gradeCount(const std::vector<char>& grades, char grade) {
-    // YOUR CODE HERE
-    return 0;
+    return std::count(grades.begin(),grades.end(), grade);
 }
 
 // ------------------------------------------------------------
@@ -45,8 +44,7 @@ int gradeCount(const std::vector<char>& grades, char grade) {
 // ------------------------------------------------------------
 int wordFrequency(const std::vector<std::string>& words,
                   const std::string& word) {
-    // YOUR CODE HERE
-    return 0;
+    return std::count(words.begin(), words.end(), word);
 }
 
 // ------------------------------------------------------------
@@ -57,8 +55,7 @@ int wordFrequency(const std::vector<std::string>& words,
 // Use std::count().
 // ------------------------------------------------------------
 bool majority(const std::vector<int>& vec, int value) {
-    // YOUR CODE HERE
-    return false;
+    return std::count(vec.begin(), vec.end(), value) > vec.size()/2 ? true : false;
 }
 
 // ============================================================

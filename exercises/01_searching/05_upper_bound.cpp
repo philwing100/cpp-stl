@@ -40,8 +40,9 @@
 // Hint: upper_bound(hi) - lower_bound(lo) gives the count.
 // ------------------------------------------------------------
 int countInRange(const std::vector<int>& sorted, int lo, int hi) {
-    // YOUR CODE HERE
-    return 0;
+    auto it = std::lower_bound(sorted.begin(),sorted.end(),lo);
+    auto it2 = std::upper_bound(sorted.begin(),sorted.end(),hi);
+    return (it2 - it);
 }
 
 // ------------------------------------------------------------
@@ -52,7 +53,9 @@ int countInRange(const std::vector<int>& sorted, int lo, int hi) {
 // Hint: upper_bound(x) - lower_bound(x) counts occurrences.
 // ------------------------------------------------------------
 int countDuplicates(const std::vector<int>& sorted, int value) {
-    // YOUR CODE HERE
+        auto it = std::lower_bound(sorted.begin(),sorted.end(),value);
+    auto it2 = std::upper_bound(sorted.begin(),sorted.end(),value);
+    return (it2 - it);
     return 0;
 }
 
@@ -67,8 +70,11 @@ int countDuplicates(const std::vector<int>& sorted, int value) {
 // Use std::upper_bound().
 // ------------------------------------------------------------
 int nextTakenSeat(const std::vector<int>& takenSeats, int seat) {
-    // YOUR CODE HERE
-    return -1;
+    auto it = std::upper_bound(takenSeats.begin(), takenSeats.end(), seat);
+    if(it==takenSeats.end()){
+        return -1;
+    }
+    return takenSeats[it-takenSeats.begin()];
 }
 
 // ============================================================

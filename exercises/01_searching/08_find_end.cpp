@@ -39,9 +39,17 @@
 // ------------------------------------------------------------
 int lastPatternIndex(const std::vector<int>& data,
                      const std::vector<int>& pattern) {
-    // YOUR CODE HERE
-    return -1;
+    if(pattern.size()==0){
+        return 0;
+    }
+    auto it = std::find_end(data.begin(),data.end(),pattern.begin(),pattern.end());
+    if ( it == data.end()){
+        return -1;
+    }else{
+        return it-data.begin();
+    }
 }
+
 
 // ------------------------------------------------------------
 // TASK 2: lastSubstring
@@ -53,9 +61,13 @@ int lastPatternIndex(const std::vector<int>& data,
 // since std::string is a range of chars.
 // ------------------------------------------------------------
 int lastSubstring(const std::string& text, const std::string& sub) {
-    // YOUR CODE HERE
-    return -1;
+    if (sub.empty()) return 0;
+
+    auto it = std::find_end(text.begin(), text.end(), sub.begin(), sub.end());
+    if (it == text.end()) return -1;
+    return static_cast<int>(it - text.begin());
 }
+
 
 // ------------------------------------------------------------
 // TASK 3: patternCount
@@ -70,8 +82,13 @@ int lastSubstring(const std::string& text, const std::string& sub) {
 // ------------------------------------------------------------
 int patternCount(const std::vector<int>& data,
                  const std::vector<int>& pattern) {
-    // YOUR CODE HERE
-    return 0;
+        while(find_end){
+
+        }
+                    auto it = std::find_end(data.begin(),data.end(), pattern.begin(),pattern.end());
+        
+        return 0;
+
 }
 
 // ============================================================

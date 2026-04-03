@@ -37,8 +37,8 @@
 // Use std::count_if().
 // ------------------------------------------------------------
 int countPassing(const std::vector<int>& scores, int threshold) {
-    // YOUR CODE HERE
-    return 0;
+    
+    return std::count_if(scores.begin(),scores.end(), [threshold](int x) {return x >= threshold; });
 }
 
 // ------------------------------------------------------------
@@ -48,8 +48,7 @@ int countPassing(const std::vector<int>& scores, int threshold) {
 // Use std::count_if().
 // ------------------------------------------------------------
 int countShortWords(const std::vector<std::string>& words, int maxLen) {
-    // YOUR CODE HERE
-    return 0;
+   return std::count_if(words.begin(),words.end(), [maxLen](std::string str){return str.size() <= maxLen;});
 }
 
 // ------------------------------------------------------------
@@ -60,8 +59,7 @@ int countShortWords(const std::vector<std::string>& words, int maxLen) {
 // Use std::count_if() with a lambda that captures lo and hi.
 // ------------------------------------------------------------
 int countInBand(const std::vector<int>& vec, int lo, int hi) {
-    // YOUR CODE HERE
-    return 0;
+    return std::count_if(vec.begin(),vec.end(), [lo, hi](int x){ return ((hi>= x) &&   (x>= lo)) ? true : false;});
 }
 
 // ============================================================

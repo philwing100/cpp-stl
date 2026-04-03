@@ -38,8 +38,8 @@
 // Use std::lower_bound().
 // ------------------------------------------------------------
 int insertionIndex(const std::vector<int>& sorted, int value) {
-    // YOUR CODE HERE
-    return 0;
+    auto it = std::lower_bound(sorted.begin(), sorted.end(), value);
+    return it - sorted.begin();
 }
 
 // ------------------------------------------------------------
@@ -52,8 +52,8 @@ int insertionIndex(const std::vector<int>& sorted, int value) {
 // Use std::lower_bound() and std::distance().
 // ------------------------------------------------------------
 int countLessThan(const std::vector<int>& sorted, int value) {
-    // YOUR CODE HERE
-    return 0;
+    auto it = std::lower_bound(sorted.begin(),sorted.end(), value);
+    return it-sorted.begin();
 }
 
 // ------------------------------------------------------------
@@ -67,8 +67,13 @@ int countLessThan(const std::vector<int>& sorted, int value) {
 // the element just before it (if it exists) is <= budget.
 // ------------------------------------------------------------
 int lowerPrice(const std::vector<int>& priceTiers, int budget) {
-    // YOUR CODE HERE
-    return -1;
+    if (priceTiers.empty()) return -1;
+
+    //Horribly written problem should just use upperbound.
+    auto it = std::upper_bound(priceTiers.begin(), priceTiers.end(), budget);
+    if (it == priceTiers.begin()) return -1;
+    --it;
+    return *it;
 }
 
 // ============================================================
